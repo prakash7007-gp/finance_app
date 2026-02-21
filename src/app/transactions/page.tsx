@@ -3,6 +3,8 @@ import { Transaction } from '@/lib/types';
 import { format } from 'date-fns';
 import { ArrowDownRight, ArrowUpRight, Search, Filter } from 'lucide-react';
 
+export const dynamic = "force-dynamic";
+
 export default async function TransactionsPage() {
   const transactions = await getTransactions() as Transaction[];
   // Sort transactions by date descending
