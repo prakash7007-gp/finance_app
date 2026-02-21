@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { TransactionType, TransactionCategory } from '@/lib/types';
 import { Save, X } from 'lucide-react';
@@ -16,7 +16,12 @@ export default function AddTransactionPage() {
   const [type, setType] = useState<TransactionType>('expense');
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
-  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+  const [date, setDate] = useState('');
+
+  // Set initial date on client to avoid hydration mismatch
+  useEffect(() => {
+    setDate(new Date().toISOString().split('T')[0]);
+  }, []);
   const [category, setCategory] = useState<TransactionCategory>('Food');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
