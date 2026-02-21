@@ -5,6 +5,7 @@ import { getSummaryData, getRecentTransactions, getExpensesByCategory } from '@/
 import { Wallet, TrendingUp, TrendingDown, PiggyBank } from 'lucide-react';
 import { getTransactions } from './actions';
 import { Transaction } from '@/lib/types';
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const transactions = await getTransactions() as Transaction[];
